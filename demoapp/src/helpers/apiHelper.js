@@ -24,8 +24,8 @@ export async function queryForPlace(placeString) {
   return queryHelper
     .fetchPlace(placeString, hardCodedLocation)
     .then(res => {
-      if (!res?.candidates) throw new Error('Err');
-      return res.candidates;
+      if (!res?.results) throw new Error('Err');
+      return res.results;
     })
     .catch(err => {
       throw new Error(err);

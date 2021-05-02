@@ -3,13 +3,12 @@ import {API_KEY, BACKEND_URL} from '@env';
 import querystring from 'querystring';
 
 export const fetchPlace = (searchQuery, location) => {
-  const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?`;
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?`;
 
   const params = {
-    input: searchQuery,
-    inputtype: 'textquery',
-    fields: 'formatted_address,name,place_id',
-    locationbias: `circle:2000@${location.lat},${location.long}`,
+    query: searchQuery,
+    location: `${location.lat},${location.long}`,
+    radius: '300',
     key: API_KEY,
   };
 
